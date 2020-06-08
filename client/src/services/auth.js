@@ -24,3 +24,7 @@ export const verifyUser = async () => {
   }
   return false
 }
+
+export const remove = async () => {
+  api.defaults.headers.common.authorization = null
+}
