@@ -16,7 +16,8 @@ class UsersController < ApplicationController
   # POST /users
   def create
     @user = User.new(user_params)
-    
+
+    # Registering all user-registered-info with an encoded token/user.id
     if @user.save
       @token = encode({user_id: @user.id});
       render json: {token: @token, user: @user}, status: :created, location: @user

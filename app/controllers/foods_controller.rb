@@ -38,6 +38,17 @@ class FoodsController < ApplicationController
     @food.destroy
   end
 
+  # Insert_Into food flavors /foods
+  def food_to_flavor
+    @flavor = Flavor.find(params[:id])
+    @food = Food.find(params[:id])
+  # pushing flavor into food's flavor 
+    @food.flavors << @flavor  
+
+    render json: @food, include: :flavors
+
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_food
