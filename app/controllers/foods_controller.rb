@@ -42,6 +42,8 @@ class FoodsController < ApplicationController
   def food_to_flavor
     @flavor = Flavor.find(params[:id])
     @food = Food.find(params[:id])
+
+    
   # pushing flavor into food's flavor 
     @food.flavors << @flavor  
 
